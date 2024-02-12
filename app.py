@@ -3,10 +3,14 @@ from PIL import Image
 import textwrap
 import google.generativeai as genai
 import io
-
+import os
 
 def configure_google_api():
-    genai.configure(api_key="yourapikey")  # Replace with your actual API key
+    api_key = os.getenv('GEMINI_API_KEY')  # Read the API key from the environment variable
+    if not api_key:
+        raise ValueError("Google API key not found. Please set the GEMINI_API_KEY environment variable.")
+
+    genai.configure(api_key=api_key)  # Replace with your actual API key
 
     generation_config = {
         "temperature": 0.9,
@@ -44,8 +48,9 @@ def process_image(image_bytes):
     
     response = model.generate_content(prompt_parts)
     return response.text
-
+    
 def main():
+    st.set_page_config(page_title="Recipe Generator",page_icon=':star:')
     st.image('gemini.webp', use_column_width=True)
     st.title('Recipe Generator Using Gemini')
     st.write("This app uses the Gemini Pro Vision model to generate a recipe based on an image of a food item.")
