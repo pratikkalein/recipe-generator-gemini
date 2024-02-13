@@ -76,3 +76,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    st.markdown("Built with ❤️ by [Pratik Kale](https://pratikkale.in) | [Source Code](https://github.com/pratikkalein/recipe-generator-gemini)")
+
