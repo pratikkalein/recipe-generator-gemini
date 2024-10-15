@@ -53,7 +53,7 @@ def main():
     st.set_page_config(page_title="Recipe Generator",page_icon=':star:')
     st.image('gemini.webp', use_column_width=True)
     st.title('Recipe Generator Using Gemini')
-    st.write("This app uses the Gemini Pro Vision model to generate a recipe based on an image of a food item.")
+    st.write("This app uses the Gemini 1.5 Flash model to generate a recipe based on an image of a food item.")
     
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
